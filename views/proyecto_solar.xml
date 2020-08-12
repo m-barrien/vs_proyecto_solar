@@ -3,9 +3,9 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="vs_proyecto_solar.list">
+    <record model="ir.ui.view" id="vs_proyecto_solar.tree">
       <field name="name">Listado de Instalaciones</field>
-      <field name="model">vs_proyecto_solar.vs_proyecto_solar</field>
+      <field name="model">vs.proyectosolar</field>
       <field name="arch" type="xml">
         <tree string="Proyectos">
           <field name="name"/>
@@ -18,6 +18,21 @@
 
 
     <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="vs_proyecto_solar.action_server">
+      <field name="name">Proyectos Solares</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">vs.proyectosolar</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{}</field>
+      <field name="domain">[]</field>
+      <field name="help" type="html">
+        <p class="o_view nocontent smiling_face">
+          Agregue las instalaciones aquí!
+        </p>
+      </field>
+
+      
+    </record>
 <!--
     <record model="ir.actions.act_window" id="vs_proyecto_solar.action_window">
       <field name="name">vs_proyecto_solar window</field>
@@ -25,6 +40,22 @@
       <field name="view_mode">tree,form</field>
     </record>
 -->
+<!-- forms -->
+    <record model="ir.ui.view" id="vs_proyecto_solar.form">
+      <field name="name">vs.proyectosolar.form</field>
+      <field name="model">vs.proyectosolar</field>
+      <field name="arch" type="xml">
+        <form string="Proyectos">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                <field name="name"/>
+              </h1>
+            </div>
+          </sheet>
+        </form>
+      </field>
+    </record>
 
     <!-- server action to the one above -->
 <!--
@@ -47,10 +78,15 @@
       id="vs_proyecto_solar.menu_root"
       name="Proyectos Solares" 
       web_icon="vs_proyecto_solar,static/description/icon.png"
-      secuence="1"
+      sequence="1"
       />
     <!-- menu categories -->
-    <menuitem name="Listado" id="vs_proyecto_solar.listado" parent="vs_proyecto_solar.menu_root"/>
+    <menuitem 
+      name="Listado" 
+      id="vs_proyecto_solar.listado" 
+      parent="vs_proyecto_solar.menu_root"
+      action="action_proyecto_solar"
+      />
     <!-- actions -->
 <!--
     <menuitem name="List" id="vs_proyecto_solar.menu_1_list" parent="vs_proyecto_solar.menu_1"

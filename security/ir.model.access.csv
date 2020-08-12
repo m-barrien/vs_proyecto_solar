@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_vs_proyecto_solar_vs_proyecto_solar,vs_proyecto_solar.vs_proyecto_solar,model_vs_proyecto_solar_vs_proyecto_solar,base.group_user,1,1,1,1
+access_vs_proyectosolar,access.vs.proyectosolar,vs_proyectosolar,,1,1,1,1
